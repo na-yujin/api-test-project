@@ -17,9 +17,13 @@ export default function ApiTestPage() {
   };
   return (
     <div className="flex flex-col">
-      <button onClick={handleClickAsync}>REST-API(비동기) 요청하기</button>
-      <button onClick={handleClickSync}>REST-API(동기) 요청하기</button>
-      <div className="mx-auto">{testTitle}</div>
+      <button className="text-black font-bold" onClick={handleClickAsync}>
+        REST-API(비동기) 요청하기
+      </button>
+      <button className="text-black font-bold" onClick={handleClickSync}>
+        REST-API(동기) 요청하기
+      </button>
+      <div className="mx-auto text-black font-bold">{testTitle}</div>
     </div>
   );
 }
