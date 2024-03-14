@@ -8,6 +8,7 @@ export default function AsyncAwait2Page() {
     });
   }
   async function getUser() {
+    throw new Error("에러가 발생했어요!");
     await networkRequest();
     return "유진";
   }
@@ -18,10 +19,16 @@ export default function AsyncAwait2Page() {
   }
 
   async function getData() {
-    const user = await getUser();
-    console.log(user);
+    let user;
+    try {
+      user = await getUser();
+    } catch (error) {
+      console.log(error.message);
+      user = "익명";
+    }
     const todo = await getTodo();
-    console.log(todo);
+    console.log(`${user}님 ${todo}를 하세요`);
   }
+
   getData();
 }
